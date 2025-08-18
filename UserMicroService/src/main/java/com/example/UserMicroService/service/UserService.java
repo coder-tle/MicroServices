@@ -10,6 +10,8 @@ import com.example.UserMicroService.entity.Contacts;
 import com.example.UserMicroService.entity.User;
 import com.example.UserMicroService.repository.UserRepo;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @Service
 public class UserService 
 {
