@@ -6,14 +6,14 @@ spring:
   cloud:
     gateway:
       routes:
-       - id: user-ms
+       - id: users-ms
          uri:
-           lb://USER-MS
+           lb://users-ms
          predicates:
          - Path=/user/**
-       - id: contact-ms
+       - id: contacts-ms
          uri:
-          lb://CONTACT-MS
+          lb://contacts-ms
          predicates:
          - Path=/contacts/**		 
 logging:
