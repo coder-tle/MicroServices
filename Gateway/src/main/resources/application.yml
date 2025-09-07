@@ -2,20 +2,32 @@ server:
   port: 8080
 spring:
   application:
-    name: api-gateway
+    name: Gateway
   cloud:
     gateway:
       routes:
-       - id: UserMicroService
+       - id: user-ms
          uri:
-          lb://UserMicroService
+           lb://USER-MS
          predicates:
-         - Path=/api/user/**
-       - id: ContactsMicroServices 
+         - Path=/user/**
+       - id: contact-ms
          uri:
-          lb://ContactsMicroServices 
+          lb://CONTACT-MS
          predicates:
-         - Path=/api/contacts/**		 
+         - Path=/contacts/**		 
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.cloud.loadbalancer: DEBUG
+    com.netflix.eureka: DEBUG
+    root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway,health
 
 eureka:
  instance:
